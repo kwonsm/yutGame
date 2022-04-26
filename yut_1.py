@@ -56,6 +56,12 @@ while running:
                 print(yut)
         if event.type == pygame.KEYUP:
             push = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            push = True
+            yut.clear()
+            for i in range(4):
+                yut.append(random.randrange(0, 1 + 1))
+            print(yut)
     redraw()
     pygame.display.update() #게임 화면을 다시 그리기
 pygame.quit()
