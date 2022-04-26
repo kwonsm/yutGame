@@ -41,6 +41,14 @@ def redraw():
             screen.blit(yut2, ((i * screen_width / 9) - (yut_width / 2), (screen_height / 2) - (yut_height / 2)))
 
 
+def button():
+    push = True
+    yut.clear()
+    for i in range(4):
+        yut.append(random.randrange(0, 1 + 1))
+    print(yut)
+
+
 running = True
 
 while running:
@@ -49,19 +57,11 @@ while running:
             running = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-                push = True
-                yut.clear()
-                for i in range(4):
-                    yut.append(random.randrange(0, 1 + 1))
-                print(yut)
+                button()
         if event.type == pygame.KEYUP:
             push = False
         if event.type == pygame.MOUSEBUTTONDOWN:
-            push = True
-            yut.clear()
-            for i in range(4):
-                yut.append(random.randrange(0, 1 + 1))
-            print(yut)
+            button()
     redraw()
     pygame.display.update() #게임 화면을 다시 그리기
 pygame.quit()
