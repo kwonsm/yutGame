@@ -47,6 +47,7 @@ def button():
     for i in range(4):
         yut.append(random.randrange(0, 1 + 1))
     print(yut)
+    return push
 
 
 running = True
@@ -57,11 +58,13 @@ while running:
             running = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-                button()
+                push = button()
         if event.type == pygame.KEYUP:
             push = False
         if event.type == pygame.MOUSEBUTTONDOWN:
-            button()
+            push = button()
+        if event.type == pygame.MOUSEBUTTONUP:
+            push = False
     redraw()
     pygame.display.update() #게임 화면을 다시 그리기
 pygame.quit()
