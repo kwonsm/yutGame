@@ -10,6 +10,7 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption(("yut Game"))
 
 background = pygame.image.load("D:/project/yut Game/background/table.png")
+running = True
 
 yut1 = pygame.image.load("D:/project/yut Game/entity/yut1.png")
 yut2 = pygame.image.load("D:/project/yut Game/entity/yut3.png")
@@ -28,7 +29,7 @@ button_y_pos = (6 * screen_height / 7) - (button_height / 2)
 push = False
 
 
-def redraw():
+def redraw(push):
     screen.blit(background, (0, 0))  # 배경 그리기
     if push:
         screen.blit(button1, (button_x_pos, button_y_pos))
@@ -50,21 +51,4 @@ def button():
     return push
 
 
-running = True
 
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
-                push = button()
-        if event.type == pygame.KEYUP:
-            push = False
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            push = button()
-        if event.type == pygame.MOUSEBUTTONUP:
-            push = False
-    redraw()
-    pygame.display.update() #게임 화면을 다시 그리기
-pygame.quit()
